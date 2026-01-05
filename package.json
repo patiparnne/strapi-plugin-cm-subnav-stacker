@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.3",
   "keywords": [],
   "type": "commonjs",
   "exports": {
@@ -32,14 +32,14 @@
   },
   "dependencies": {
     "js-cookie": "^3.0.5",
-    "react-intl": "^7.1.11"
+    "react-intl": "^8.0.1"
   },
   "devDependencies": {
     "@strapi/design-system": "^2.0.0-rc.30",
     "@strapi/icons": "^2.0.0-rc.30",
+    "@strapi/strapi": "^5.32.0",
     "@strapi/sdk-plugin": "^5.3.2",
-    "@strapi/strapi": "5.33.0",
-    "@strapi/typescript-utils": "5.33.0",
+    "@strapi/typescript-utils": "^5.32.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "prettier": "^3.6.2",
@@ -59,11 +59,11 @@
   "peerDependencies": {
     "@strapi/design-system": "^2.0.0-rc.30",
     "@strapi/icons": "^2.0.0-rc.30",
+    "@strapi/strapi": "^5.32.0",
     "@strapi/sdk-plugin": "^5.3.2",
-    "@strapi/strapi": "5.33.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.1",
+    "react-router-dom": "^6.30.0",
     "styled-components": "^6.1.19"
   },
   "strapi": {
