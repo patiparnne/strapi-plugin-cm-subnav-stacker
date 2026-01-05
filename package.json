@@ -72,7 +72,7 @@
     "displayName": "Content Manager Subnavigation Stacker",
     "description": "Automatically groups related content types in the Strapi Content Manager sidebar into collapsible subnavigation sections based on name patterns."
   },
-  "name": "cm-subnav-stacker",
+  "name": "strapi-plugin-cm-subnav-stacker",
   "description": "Automatically groups related content types in the Strapi Content Manager sidebar into collapsible subnavigation sections based on name patterns.",
   "license": "MIT",
   "repository": {

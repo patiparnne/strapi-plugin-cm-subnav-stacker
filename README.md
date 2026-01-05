@@ -76,6 +76,21 @@ GroupName | ItemName
 
 These will be automatically grouped under "Blog" and "Product" respectively.
 
+#### Ordering
+
+To control the order of items within a group, prefix the title with `[<number>]`:
+
+```
+GroupName | [<number>] ItemName
+```
+
+**Examples:**
+- `[1] Blog | Category`
+- `[2] Blog | Post`
+- `[3] Blog | Tag`
+
+Items will be sorted numerically based on the number prefix within each group.
+
 ## Environment Variables
 
 You can configure the plugin using environment variables in your `.env` file:
