@@ -2,6 +2,16 @@
 
 Automatically groups related content types in the Strapi Content Manager sidebar into collapsible subnavigation sections based on name patterns.
 
+## Installation
+
+Install the plugin via npm:
+
+```bash
+npm install strapi-plugin-cm-subnav-stacker
+```
+
+Then enable the plugin in your `config/plugins.ts` (see Configuration section below).
+
 ## Features
 
 - Automatically organizes content types with common prefixes/patterns into grouped sections
