@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "keywords": [],
+  "version": "1.0.2",
+  "keywords": ["strapi", "strapi plugin", "content-manager", "content-manager menu", "subnavigation", "content-manager navigation", "strapi menu", "strapi navigation", "strapi admin", "strapi admin menu", "strapi admin navigation", "strapi admin subnavigation", "strapi custom navigation", "navigation"],
   "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
