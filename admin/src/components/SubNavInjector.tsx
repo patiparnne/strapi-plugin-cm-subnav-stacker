@@ -87,7 +87,10 @@ const formatContentTypes = (delimiter: string, data: any): ContentType[] => {
   const defaultSortOrder = data.data.length + 1000; // Use length + 1000 to ensure it's higher than any reasonable [<number>]
 
   return data.data
-    .filter((ct: any) => ct.uid.startsWith('api::'))
+    .filter((ct: any) => {
+      // Include both api:: content types and plugin content types (like plugin::users-permissions.user)
+      return ct.uid.startsWith('api::') || ct.uid.startsWith('plugin::');
+    })
     .map((ct: any) => {
       const displayName = ct.schema.displayName || ct.apiID;
       const kind = ct.schema.kind;
@@ -722,6 +725,8 @@ const NavigationApp: React.FC = () => {
         // Use Strapi's built-in fetch client which handles auth automatically
         const { get } = getFetchClient();
         const { data } = await get('/admin/users/me/permissions');
+
+        console.log(data);
         
         // accept both array and {data: ...}
         const list = Array.isArray(data) ? data : (data?.data ?? data?.permissions ?? []);
@@ -770,13 +775,25 @@ const NavigationApp: React.FC = () => {
         // If we have permissions, filter by them; otherwise show all content types
         // (fallback for when permission fetch fails in production)
         if (permissions.length > 0) {
-          allowedContentTypes = contentTypes.filter(
-            (ct) => permissions.some(
-              (p) => (
+          allowedContentTypes = contentTypes.filter((ct) => {
+            // Check for standard content-manager read permissions
+            const hasContentManagerRead = permissions.some(
+              (p) => p.action === 'plugin::content-manager.explorer.read' && p.subject === ct.uid
+            );
+            
+            // For plugin content types (like plugin::users-permissions.user),
+            // also check for any read action that includes the content type UID
+            const isPluginContentType = ct.uid.startsWith('plugin::');
+            const hasPluginRead = isPluginContentType && permissions.some(
+              (p) => p.subject === ct.uid && (
+                p.action?.includes('read') || 
+                p.action?.includes('find') ||
                 p.action === 'plugin::content-manager.explorer.read'
-              ) && p.subject === ct.uid
-            )
-          );
+              )
+            );
+            
+            return hasContentManagerRead || hasPluginRead;
+          });
           console.log('Allowed content types after permission filter:', allowedContentTypes.length, allowedContentTypes);
         } else {
           // Fallback: show all content types when permissions can't be fetched

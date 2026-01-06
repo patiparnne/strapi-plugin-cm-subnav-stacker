@@ -1,5 +1,5 @@
 {
-  "version": "0.0.3",
+  "version": "1.0.0",
   "keywords": [],
   "type": "commonjs",
   "exports": {
@@ -83,5 +83,7 @@
     "url": "https://github.com/patiparnne/strapi-plugin-cm-subnav-stacker/issues"
   },
   "homepage": "https://github.com/patiparnne/strapi-plugin-cm-subnav-stacker#readme",
-  "author": "Patiparnne <partyparti@gmail.com>"
+  "author": "Patiparnne <partyparti@gmail.com>",
+  "buy_me_a_coffee": "https://buymeacoffee.com/patiparnne",
+  "patreon": "https://www.patreon.com/patiparnne"
 }
